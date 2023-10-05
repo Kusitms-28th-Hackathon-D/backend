@@ -23,8 +23,8 @@ jobs:
         distribution: 'temurin'
 
     - name: 🍃 application.yml 파일을 생성합니다.
+      working-directory: src/main/resources
       run: |
-        cd ./src/main/resources
         touch ./application.yml
         echo "$APPLICATION" > ./application.yml
       env:
