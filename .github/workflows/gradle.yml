@@ -5,25 +5,25 @@
 # This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
 
-name: Java CI with Gradle
+#name: Java CI with Gradle
 
-on:
-  push:
-    branches: [ "main", "develop" ]
-  pull_request:
-    branches: [ "main", "develop" ]
+#on:
+ # push:
+  #  branches: [ "main", "develop" ]
+  #pull_request:
+   # branches: [ "main", "develop" ]
 
-permissions:
-  contents: read
+#permissions:
+ # contents: read
 
-jobs:
-  build:
+#jobs:
+ # build:
 
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
-      - name: 🍃 JDK 11로 설정합니다.
+   # steps:
+   #   - uses: actions/checkout@v3
+    #  - name: 🍃 JDK 11로 설정합니다.
         uses: actions/setup-java@v3
         with:
           java-version: '11'
