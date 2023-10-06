@@ -3,7 +3,7 @@ version: '3'
 services:
   blue:
     container_name: blue
-    image: haul123/blue-green
+    image: haul123/blue-green2
     expose:
       - 8080
     ports:
@@ -12,7 +12,7 @@ services:
       - TZ=Asia/Seoul
   green:
     container_name: green
-    image: haul123/blue-green
+    image: haul123/blue-green2
     expose:
       - 8080
     ports:
