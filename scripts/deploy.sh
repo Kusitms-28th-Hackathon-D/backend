@@ -10,7 +10,7 @@ if [ -z $IS_GREEN_EXIST ];then
   while [ 1 = 1 ]; do
   echo ">>> green health check 중..."
   sleep 3
-  REQUEST=$(curl http://127.0.0.1:8082)
+  REQUEST=$(curl http://127.0.0.1:8080)
     if [ -n "$REQUEST" ]; then
       echo ">>> 🍃 health check success !"
       break;
