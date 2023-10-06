@@ -39,7 +39,15 @@ else
   echo "2. blue container up"
   docker-compose up -d blue
 
+  while [ 1 = 1 ]; do
+    echo "3. blue health check..."
+    sleep 3
+    REQUEST=$(curl http://127.0.0.1:8080) # blue로 request
 
+    if [ -n "$REQUEST" ]; then # 서비스 가능하면 health check 중지
+      echo "health check success"
+      break ;
+    fi
   done;
 
   echo "4. reload nginx"
