@@ -1,12 +1,12 @@
 #!/bin/bash
-IS_GREEN_EXIST=$(docker ps | grep green)
+IS_GREEN_EXIST=$(docker ps | grep green2)
 DEFAULT_CONF=" /etc/nginx/nginx.conf"
 if [ -z $IS_GREEN_EXIST ];then
   echo "### BLUE => GREEN ####"
   echo ">>> green image를 pull합니다."
-  docker-compose pull green
+  docker-compose pull green2
   echo ">>> green container를 up합니다."
-  docker-compose up -d green
+  docker-compose up -d green2
   while [ 1 = 1 ]; do
   echo ">>> green health check 중..."
   sleep 3
@@ -21,14 +21,14 @@ if [ -z $IS_GREEN_EXIST ];then
   sudo cp /etc/nginx/nginx.green.conf /etc/nginx/nginx.conf
   sudo nginx -s reload
   echo ">>> blue container를 down합니다."
-  docker-compose stop blue
+  docker-compose stop blue2
 # green이 실행 중이면 blue를 up합니다.
 else
   echo "### GREEN => BLUE ###"
   echo ">>> blue image를 pull합니다."
-  docker-compose pull blue
+  docker-compose pull blue2
   echo ">>> blue container up합니다."
-  docker-compose up -d blue
+  docker-compose up -d blue2
   while [ 1 = 1 ]; do
     echo ">>> blue health check 중..."
     sleep 3
@@ -43,6 +43,6 @@ else
   sudo cp /etc/nginx/nginx.blue.conf /etc/nginx/nginx.conf
   sudo nginx -s reload
   echo ">>> green container를 down합니다."
-  docker-compose stop green
+  docker-compose stop green2
 fi
 #cicd
