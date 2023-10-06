@@ -6,5 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/api/sample")
 @RestController
+//1
 public class SampleController {
 }
