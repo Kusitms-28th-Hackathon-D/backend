@@ -48,15 +48,14 @@ public class SpringSecurityConfig {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return web -> {
-            web.ignoring().antMatchers(
-                    "/v3/api-docs/**",
-                    "/swagger-resources/**",
-                    "/swagger-ui/**",
-                    "/swagger/**",
-                    "/error",
-                    "/auth/**"
-                    );
-        };
+        return web -> web.ignoring().antMatchers(
+                "/v2/api-docs/**",
+                "/favicon.ico",
+                "/swagger-resources/**",
+                "/swagger-ui/**",
+                "/swagger/**",
+                "/error",
+                "/auth/**"
+                );
     }
 }
