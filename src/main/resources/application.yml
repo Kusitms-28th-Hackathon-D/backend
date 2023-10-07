@@ -1,6 +1,19 @@
 server:
   port: 8080
 
+cloud:
+   aws:
+     s3:
+       endpoint: https://s3.amazonaws.com
+     credentials:
+       access-key: AKIAQUM7QY6SGL7KBCSX
+       secret-key: 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
+     bucket: url-qogustj
+   region:
+     static: ap-northeast-2
+   stack:
+     auto: false
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -13,12 +26,7 @@ spring:
       ddl-auto: update
     properties:
       hibernate.format_sql: true
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            client-id: 799333127259-2e22vu6n71ctc579itbpvpdivoa8am99.apps.googleusercontent.com
-            client-secret: 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
-            redirect-uri: http://localhost:8080/login/oauth2/code/google
-            scope: email, profile
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB

@@ -6,6 +6,7 @@ on:
       - main
 
 env:
+
   AWS_REGION: ap-northeast-2
   S3_BUCKET_NAME: st-github-actions-s3-bucket
   CODE_DEPLOY_APPLICATION_NAME: st-codedeploy-app
