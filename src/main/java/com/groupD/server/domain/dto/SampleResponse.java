@@ -1,4 +1,4 @@
-package com.groupD.server.dto;
+package com.groupD.server.domain.dto;
 
 import com.groupD.server.domain.Sample;
 import lombok.AllArgsConstructor;
