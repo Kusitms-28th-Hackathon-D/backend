@@ -50,8 +50,9 @@ public class SpringSecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                    .antMatchers("/auth/**").permitAll()
-                    .anyRequest().authenticated()
+//                    .antMatchers("/auth/**").permitAll()
+//                    .anyRequest().authenticated()
+                .anyRequest().permitAll()
                 .and()
                 .addFilterBefore(new JwtAuthenticationFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(exceptionFilter, JwtAuthenticationFilter.class);
@@ -72,8 +73,8 @@ public class SpringSecurityConfig {
                 "/swagger-resources/**",
                 "/swagger-ui/**",
                 "/swagger/**",
-                "/error"
-//                "/auth/**"
+                "/error",
+                "/auth/**"
                 );
     }
 }

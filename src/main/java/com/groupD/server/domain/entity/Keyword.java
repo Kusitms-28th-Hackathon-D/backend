@@ -6,24 +6,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-
 @Entity
 @Table(name = "keywords")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Keyword extends DateEntity{
-
+public class Keyword{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    @Column(name = "keyword_id")
+    private Long id;
 
-    @NotBlank
-    public String desc;
+    private String value;
 
+    // Keyword와 Namecard 간의 Many-to-One 관계
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "keyword")
-    public NameCard nameCard;
+    @JoinColumn(name = "namecard_id")
+    private Namecard namecard;
+
 }

@@ -27,6 +27,7 @@ public class AuthService {
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider tokenProvider;
+    private final NameCardService nameCardService;
 
     @Value("secretPwd_secretPwd_secretPwd_secretPwd")
     private String KAKAO_SECRET_SERVER_PWD;
@@ -34,7 +35,7 @@ public class AuthService {
     @Transactional
     public void signUp(SignUpRequestDto dto) {
         if(memberRepository.existsByEmail(dto.getEmail())) throw new EmailExistsException("이미 가입한 이메일입니다.");
-        memberRepository.save(
+        Member saveMember = memberRepository.save(
                 Member.builder()
                         .id(null)
                         .email(dto.getEmail())
@@ -50,6 +51,9 @@ public class AuthService {
                         .oauth("IN_APP")
                         .build()
         );
+
+        //기본 namecard 생성
+        nameCardService.createNameCard(saveMember);
     }
 
     @Transactional

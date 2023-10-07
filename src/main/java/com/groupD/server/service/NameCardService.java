@@ -3,7 +3,7 @@ package com.groupD.server.service;
 import com.groupD.server.domain.dto.EditNameCardRequestDto;
 import com.groupD.server.domain.entity.Keyword;
 import com.groupD.server.domain.entity.Member;
-import com.groupD.server.domain.entity.NameCard;
+import com.groupD.server.domain.entity.Namecard;
 import com.groupD.server.exception.member.MemberNotExistsException;
 import com.groupD.server.repository.KeywordRepository;
 import com.groupD.server.repository.MemberRepository;
@@ -24,8 +24,8 @@ public class NameCardService {
     private final KeywordRepository keywordRepository;
 
     @Transactional
-    public void createNameCard() {
-
+    public void createNameCard(Member member) {
+        nameCardRepository.save(new Namecard(null, member, null));
     }
 
     @Transactional
@@ -33,7 +33,7 @@ public class NameCardService {
         Member member = memberRepository.findByEmail(
                 authInfo.getEmail()).orElseThrow(()-> new MemberNotExistsException("멤버가 존재하지 않습니다.")
         );
-        NameCard nameCard = nameCardRepository.findByMember(member);
+        Namecard nameCard = nameCardRepository.findByMember(member);
 
         for(String desc: dto.getKeywords()) {
             keywordRepository.save(new Keyword(null, desc, nameCard));
