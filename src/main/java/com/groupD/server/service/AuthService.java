@@ -1,7 +1,10 @@
 package com.groupD.server.service;
 
+import com.groupD.server.domain.Disability;
+import com.groupD.server.domain.PreferJob;
 import com.groupD.server.domain.Role;
 import com.groupD.server.domain.dto.SignInResponseDto;
+import com.groupD.server.domain.dto.SignUpRequestDto;
 import com.groupD.server.domain.entity.Member;
 import com.groupD.server.exception.auth.EmailExistsException;
 import com.groupD.server.exception.auth.InvalidEmailException;
@@ -29,17 +32,22 @@ public class AuthService {
     private String KAKAO_SECRET_SERVER_PWD;
 
     @Transactional
-    public void signUp(String email, String password, Role role, String oauth, String image) {
-        if(memberRepository.existsByEmail(email)) throw new EmailExistsException("이미 가입한 이메일입니다.");
+    public void signUp(SignUpRequestDto dto) {
+        if(memberRepository.existsByEmail(dto.getEmail())) throw new EmailExistsException("이미 가입한 이메일입니다.");
         memberRepository.save(
                 Member.builder()
                         .id(null)
-                        .email(email)
-                        .password(passwordEncoder.encode(password))
-                        .image(image)
-                        .role(role)
+                        .email(dto.getEmail())
+                        .password(passwordEncoder.encode(dto.getPassword()))
+                        .imageUrl(dto.getImageUrl())
+                        .role(dto.getRole())
+                        .disability(dto.getDisability())
+                        .phonenum(dto.getPhonenum())
+                        .jobPriority1(dto.getJobPriority1())
+                        .jobPriority2(dto.getJobPriority2())
+                        .jobPriority3(dto.getJobPriority3())
                         .refreshToken(null)
-                        .oauth(oauth)
+                        .oauth("IN_APP")
                         .build()
         );
     }
@@ -58,7 +66,7 @@ public class AuthService {
         TokenInfo refreshToken = tokenProvider.createRefreshToken(member.getEmail(), member.getRole());
         member.updateRefreshToken(refreshToken.getToken());
         return new SignInResponseDto(
-                member.getId(), member.getEmail(), member.getImage(), member.getRole(), accessToken.getToken(), refreshToken.getToken(), accessToken.getExpireTime(), refreshToken.getExpireTime()
+                member.getId(), member.getEmail(), member.getImageUrl(), member.getRole(), accessToken.getToken(), refreshToken.getToken(), accessToken.getExpireTime(), refreshToken.getExpireTime()
         );
     }
 }
