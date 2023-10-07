@@ -39,6 +39,7 @@ public class SpringSecurityConfig {
                                 // Cors 허용 패턴
                                 CorsConfiguration config = new CorsConfiguration();
                                 config.setAllowedOrigins(List.of("http://localhost:3000", "https://diamond-hackathon-kutisms.vercel.app"));
+                                config.setAllowedHeaders(List.of("*"));
                                 config.setAllowedMethods(List.of("*"));
                                 config.setAllowCredentials(true);
 
