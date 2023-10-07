@@ -1,18 +1,15 @@
 server:
   port: 8080
-
 cloud:
-   aws:
-     s3:
-       endpoint: https://s3.amazonaws.com
-     credentials:
-       access-key: AKIAQUM7QY6SGL7KBCSX
-       secret-key: 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
-     bucket: url-qogustj
-   region:
-     static: ap-northeast-2
-   stack:
-     auto: false
+  aws:
+    s3:
+      bucket: url-qogustj
+    stack.auto: false
+    region.static: ap-northeast-2
+    credentials:
+      access-key: AKIAQUM7QY6SGL7KBCSX
+      secret-key: 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
+
 
 spring:
   datasource:
