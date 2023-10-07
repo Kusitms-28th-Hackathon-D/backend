@@ -29,9 +29,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String jwtToken = jwtTokenProvider.resolveToken(bearerToken);
         if(jwtToken != null && jwtTokenProvider.validateToken(jwtToken)) {
             Authentication authentication = jwtTokenProvider.getAuthentication(jwtToken);
-            System.out.println("jwtauthfilter prin:"+authentication.getPrincipal());
             SecurityContextHolder.getContext().setAuthentication(authentication);
-            System.out.println("prin inside: "+ ((UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
         }
         else {
             throw new InvalidTokenException("토큰이 유효하지 않습니다.");

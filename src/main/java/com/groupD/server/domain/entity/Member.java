@@ -21,6 +21,7 @@ import javax.validation.constraints.NotBlank;
 public class Member extends DateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "member_id")
     private Long id;
 
     @Email

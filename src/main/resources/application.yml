@@ -3,6 +3,7 @@ server:
 cloud:
   aws:
     s3:
+      endpoint : https://s3.amazonaws.com
       bucket: url-qogustj
     stack.auto: false
     region.static: ap-northeast-2
