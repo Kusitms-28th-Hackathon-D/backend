@@ -24,6 +24,10 @@ public class Member extends DateEntity {
     @Column(name = "member_id")
     private Long id;
 
+//    @ManyToOne
+//    @JoinColumn(name = "groupinfo_id")
+//    private GroupInfo groupInfo;
+
     @Email
     @NotBlank
     @Column(unique = true)
