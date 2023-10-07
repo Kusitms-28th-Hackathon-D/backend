@@ -19,7 +19,7 @@ public class S3Controller {
     private final S3Uploader s3Uploader;
 
     @PostMapping("/image")
-    public ResponseEntity<SignUpRequestDto> updateUserImage(@RequestPart("file") MultipartFile multipartFile) {
+    public ResponseEntity<SignUpRequestDto> updateUserImage(@Auth AuthInfo authInfo, @RequestPart("file") MultipartFile multipartFile) {
         try {
             s3Uploader.uploadFiles(multipartFile, "static");
         } catch (Exception e) {

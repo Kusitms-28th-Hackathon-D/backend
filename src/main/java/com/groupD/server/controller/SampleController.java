@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/api/sample")
 @RestController
-
 public class SampleController {
 private final SampleService sampleService;
 
