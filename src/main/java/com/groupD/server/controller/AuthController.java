@@ -22,7 +22,7 @@ public class AuthController {
     @PostMapping("/signUp")
     @ResponseStatus(HttpStatus.OK)
     public void signUp(@Valid @RequestBody SignUpRequestDto dto) {
-        authService.signUp(dto.getEmail(), dto.getPassword(), dto.getRole(), "IN_APP", null);
+        authService.signUp(dto);
     }
 
     @ApiOperation("로그인")
