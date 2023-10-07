@@ -1,4 +1,4 @@
-package com.groupD.server.exception;
+package com.groupD.server.exception.auth;
 
 public class InvalidEmailException extends RuntimeException{
     public InvalidEmailException(String message) {

@@ -1,4 +1,4 @@
-package com.groupD.server.exception;
+package com.groupD.server.exception.auth;
 
 public class JsonException extends RuntimeException{
     public JsonException(String message) {

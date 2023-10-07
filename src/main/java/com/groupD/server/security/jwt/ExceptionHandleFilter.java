@@ -56,7 +56,7 @@ public class ExceptionHandleFilter extends OncePerRequestFilter {
                                   String errorCode) {
         response.setStatus(status.value());
         response.setContentType("application/json");
-        ErrorResponse errorResponse = new ErrorResponse(code);
+        ErrorResponse errorResponse = new ErrorResponse(code, exceptionMessage);
         try {
             log.error("에러코드 "+errorCode+": "+exceptionMessage+", 요청 url: "+request.getRequestURI());
             response.setCharacterEncoding("UTF-8");

@@ -9,7 +9,7 @@ import com.groupD.server.domain.dto.KakaoProfileDto;
 import com.groupD.server.domain.dto.ReissueResponseDto;
 import com.groupD.server.domain.dto.SignInResponseDto;
 import com.groupD.server.domain.entity.Member;
-import com.groupD.server.exception.*;
+import com.groupD.server.exception.auth.*;
 import com.groupD.server.repository.MemberRepository;
 import com.groupD.server.security.jwt.JwtTokenProvider;
 import com.groupD.server.security.jwt.TokenInfo;
