@@ -47,7 +47,6 @@ public class Member extends DateEntity {
     @Enumerated(EnumType.STRING)
     private PreferJob jobPriority3;
 
-    @NotBlank
     private String imageUrl;
     @Enumerated(EnumType.STRING)
     private Role role;
