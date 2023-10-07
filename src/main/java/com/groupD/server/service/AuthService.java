@@ -40,7 +40,6 @@ public class AuthService {
                         .id(null)
                         .email(dto.getEmail())
                         .password(passwordEncoder.encode(dto.getPassword()))
-                        .imageUrl(dto.getImageUrl())
                         .role(dto.getRole())
                         .disability(dto.getDisability())
                         .phonenum(dto.getPhonenum())

@@ -38,7 +38,7 @@ public class SignUpRequestDto {
 
     @Enumerated(EnumType.STRING)
     private PreferJob jobPriority3;
-    @NotBlank
+
     private String imageUrl;
 
 }
