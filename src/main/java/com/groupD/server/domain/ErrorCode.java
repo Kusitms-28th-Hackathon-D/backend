@@ -19,7 +19,9 @@ public enum ErrorCode {
     INVALID_REFRESH_TOKEN_ERROR(false, HttpStatus.BAD_REQUEST.value(), "RefreshToken 정보를 찾을 수 없습니다."),
 
     //member
-    MEMBER_NOT_EXISTS_ERROR(false, HttpStatus.BAD_REQUEST.value(), "존재하지 않는 사용자입니다.");
+    MEMBER_NOT_EXISTS_ERROR(false, HttpStatus.BAD_REQUEST.value(), "존재하지 않는 사용자입니다."),
+    //namecard
+    KEYWORD_NOT_EXISTS_ERROR(false, HttpStatus.BAD_REQUEST.value(), "존재하지 않는 키워드입니다.");
     ;
 
     private Boolean isSuccess;
