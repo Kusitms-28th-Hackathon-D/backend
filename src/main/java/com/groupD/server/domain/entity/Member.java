@@ -20,6 +20,7 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 public class Member extends DateEntity {
     @Id
+    @Column(name ="member_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
     private Long id;

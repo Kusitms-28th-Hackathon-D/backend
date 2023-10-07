@@ -32,4 +32,5 @@ public class AuthController {
     public SignInResponseDto signIn(@Valid @RequestBody SignInRequestDto dto) {
         return authService.signIn(dto.getEmail(), dto.getPassword());
     }
+
 }

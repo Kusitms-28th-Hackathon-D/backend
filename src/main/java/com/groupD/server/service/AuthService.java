@@ -72,5 +72,7 @@ public class AuthService {
         return new SignInResponseDto(
                 member.getId(), member.getEmail(), member.getImageUrl(), member.getRole(), accessToken.getToken(), refreshToken.getToken(), accessToken.getExpireTime(), refreshToken.getExpireTime()
         );
+
+
     }
 }
