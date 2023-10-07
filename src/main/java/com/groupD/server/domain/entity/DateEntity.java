@@ -20,5 +20,5 @@ public class DateEntity {
 
     @LastModifiedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime updatedDate;
+    private LocalDateTime updatedAt;
 }
