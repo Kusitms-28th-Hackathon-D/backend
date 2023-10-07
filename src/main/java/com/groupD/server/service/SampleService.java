@@ -1,7 +1,7 @@
 package com.groupD.server.service;
 
 import com.groupD.server.domain.Sample;
-import com.groupD.server.dto.SampleResponse;
+import com.groupD.server.domain.dto.SampleResponse;
 import com.groupD.server.repository.SampleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

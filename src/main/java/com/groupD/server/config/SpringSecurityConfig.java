@@ -15,6 +15,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -30,6 +34,19 @@ public class SpringSecurityConfig {
         http
                 .httpBasic().disable()
                 .csrf().disable()
+                .cors(c -> {
+                            CorsConfigurationSource source = request -> {
+                                // Cors 허용 패턴
+                                CorsConfiguration config = new CorsConfiguration();
+                                config.setAllowedOrigins(List.of("http://localhost:3000", "https://diamond-hackathon-kutisms.vercel.app"));
+                                config.setAllowedMethods(List.of("*"));
+                                config.setAllowCredentials(true);
+
+                                return config;
+                            };
+                            c.configurationSource(source);
+                        }
+                )
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
