@@ -75,6 +75,6 @@ public class NameCardService {
 
     @Transactional
     public GetKeywordListResponseDto getAllKeywords() {
-        return new GetKeywordListResponseDto(keywordRepository.findAll().stream().map(Keyword::toString).collect(Collectors.toList()));
+        return new GetKeywordListResponseDto(keywordRepository.findAll().stream().map(k->k.getValue()).collect(Collectors.toList()));
     }
 }
