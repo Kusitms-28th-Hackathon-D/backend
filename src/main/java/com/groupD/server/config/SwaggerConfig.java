@@ -2,23 +2,35 @@ package com.groupD.server.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-public class SwaggerConfig {
+public class SwaggerConfig implements WebMvcConfigurer {
+    private ApiInfo apiInfo() {
 
-    // 기본 swagger 선언
+        return new ApiInfoBuilder()
+                .title("KUSITMS")
+                .description("Kusitms 28th hackerton")
+                .build();
+    }
+
     @Bean
-    public Docket api() {
+    public Docket commonApi() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("groupD")
+                .apiInfo(this.apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.any())
+                .apis(RequestHandlerSelectors
+                        .basePackage("com.groupD.server.controller"))
+                .paths(PathSelectors.ant("/**"))
                 .build();
     }
 }
