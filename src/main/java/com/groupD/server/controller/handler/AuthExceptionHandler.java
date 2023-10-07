@@ -34,18 +34,4 @@ public class AuthExceptionHandler {
         log.warn("Auth-003> 요청 URI: " + request.getRequestURI() + ", 에러 메세지: " + e.getMessage());
         return new ErrorResponse<>(ErrorCode.INVALID_PASSWORD_ERROR);
     }
-
-    @ExceptionHandler(RefreshTokenNotFoundException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorResponse<?> handleRefreshTokenNotFoundException(RefreshTokenNotFoundException e, HttpServletRequest request) {
-        log.warn("Auth-004> 요청 URI: " + request.getRequestURI() + ", 에러 메세지: " + e.getMessage());
-        return new ErrorResponse<>(ErrorCode.INVALID_REFRESH_TOKEN_ERROR);
-    }
-
-    @ExceptionHandler(JsonException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorResponse<?> handleJsonException(JsonException e, HttpServletRequest request) {
-        log.warn("Auth-005> 요청 URI: " + request.getRequestURI() + ", 에러 메세지: " + e.getMessage());
-        return new ErrorResponse<>(ErrorCode.INTERNAL_SERVER_ERROR);
-    }
 }
