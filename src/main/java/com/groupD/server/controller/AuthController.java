@@ -5,6 +5,7 @@ import com.groupD.server.domain.dto.SignInResponseDto;
 import com.groupD.server.domain.dto.SignUpRequestDto;
 import com.groupD.server.service.AuthService;
 import io.swagger.annotations.ApiOperation;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

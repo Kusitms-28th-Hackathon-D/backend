@@ -6,20 +6,26 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "keywords")
+@Table(name = "namecard_keyword")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Keyword{
+public class NameCardKeyword {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "keyword_id")
+    @Column(name = "namecard_keyword_id")
     private Long id;
 
-    private String value;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "namecard_id")
+    private Namecard namecard;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "keyword_id")
+    private Keyword keyword;
 }
