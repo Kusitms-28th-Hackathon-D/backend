@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 public class SignInResponseDto {
     private Long id;
     private String email;
-    private String nickname;
     private String image;
     private Role role;
     private String accessToken;

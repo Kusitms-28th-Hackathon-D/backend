@@ -29,9 +29,6 @@ public class Member extends DateEntity {
     @NotBlank
     private String password;
 
-    @NotBlank
-    private String username;
-
     @Enumerated(EnumType.STRING)
     private Role role;
 
