@@ -10,8 +10,7 @@ public enum Disability {
     IntellectualDisability("시각 장애"),
     HearingImpairment("청각 장애"),
     SpeechDisorder("언어 장애"),
-    CognitiveImpairment("지적 정애"),
-    FacialDisability("안면 장애");
+    None("불편하지 않아요");
     private final String displayName;
 
 
