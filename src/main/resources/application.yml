@@ -1,5 +1,15 @@
 server:
   port: 8080
+cloud:
+  aws:
+    s3:
+      bucket: url-qogustj
+    stack.auto: false
+    region.static: ap-northeast-2
+    credentials:
+      access-key: AKIAQUM7QY6SGL7KBCSX
+      secret-key: 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
+
 
 spring:
   datasource:
@@ -13,3 +23,7 @@ spring:
       ddl-auto: update
     properties:
       hibernate.format_sql: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
