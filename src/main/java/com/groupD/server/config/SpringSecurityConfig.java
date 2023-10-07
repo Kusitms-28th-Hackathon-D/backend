@@ -72,7 +72,8 @@ public class SpringSecurityConfig {
                 "/swagger-ui/**",
                 "/swagger/**",
                 "/error",
-                "/auth/**"
+                "/auth/**",
+                "/image"
                 );
     }
 }
