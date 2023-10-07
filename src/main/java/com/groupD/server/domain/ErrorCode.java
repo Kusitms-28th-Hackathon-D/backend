@@ -17,6 +17,9 @@ public enum ErrorCode {
     INVALID_PASSWORD_ERROR(false, HttpStatus.BAD_REQUEST.value(), "비밀번호를 확인해주세요. 카카오 계정이라면 카카오 로그인으로 시도해주세요."),
     INVALID_ACCESS_TOKEN_ERROR(false, HttpStatus.BAD_REQUEST.value(), "AccessToken 정보를 찾을 수 없습니다."),
     INVALID_REFRESH_TOKEN_ERROR(false, HttpStatus.BAD_REQUEST.value(), "RefreshToken 정보를 찾을 수 없습니다."),
+
+    //member
+    MEMBER_NOT_EXISTS_ERROR(false, HttpStatus.BAD_REQUEST.value(), "존재하지 않는 사용자입니다.");
     ;
 
     private Boolean isSuccess;
