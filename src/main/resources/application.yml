@@ -28,7 +28,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://meetup.cqwxdf1sdeiw.ap-northeast-2.rds.amazonaws.com:3306/qogustj
     username: admin
-    password: qogustj50
+    password: ${{ secrets.PASSWORD }}
 
   jpa:
     hibernate:
