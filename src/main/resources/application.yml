@@ -9,8 +9,8 @@ cloud:
       endpoint : https://s3.amazonaws.com
       bucket: url-qogustj
     credentials:
-      access-key: AKIAQUM7QY6SGL7KBCSX
-      secret-key: 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
+      access-key: ${{ secrets.ACCESS_KEY }}
+      secret-key: ${{ secrets.SECRET_KEY }}
     region:
       static: ap-northeast-2
       auto: false
