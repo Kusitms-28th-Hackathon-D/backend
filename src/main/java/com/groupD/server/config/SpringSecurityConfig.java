@@ -36,7 +36,7 @@ public class SpringSecurityConfig {
                 .csrf().disable()
                 .cors(c -> {
                             CorsConfigurationSource source = request -> {
-                                // Cors 허용 패턴
+                                // Cors 허용 패턴1
                                 CorsConfiguration config = new CorsConfiguration();
                                 config.setAllowedOrigins(List.of("http://localhost:3000", "https://diamond-hackathon-kutisms.vercel.app"));
                                 config.setAllowedHeaders(List.of("*"));
