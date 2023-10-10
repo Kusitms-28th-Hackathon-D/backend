@@ -9,8 +9,8 @@ cloud:
       endpoint : https://s3.amazonaws.com
       bucket: url-qogustj
     credentials:
-      access-key: AKIAQUM7QY6SGL7KBCSX
-      secret-key: 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
+      access-key: ${{ secrets.ACCESS_KEY }}
+      secret-key: ${{ secrets.SECRET_KEY }}
     region:
       static: ap-northeast-2
       auto: false
@@ -28,7 +28,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://meetup.cqwxdf1sdeiw.ap-northeast-2.rds.amazonaws.com:3306/qogustj
     username: admin
-    password: qogustj50
+    password: ${{ secrets.PASSWORD }}
 
   jpa:
     hibernate:
